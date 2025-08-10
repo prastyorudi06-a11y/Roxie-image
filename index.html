@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roxie images | Professional Photographer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #e0e0e0;
+            --text-color: #333333;
+            --light-bg: #f8f8f8;
+            --dark-bg: #121212;
+            --light-text: #ffffff;
+            --glossy-effect: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px 25px;
+            text-align: center;
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--glossy-effect);
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo-img {
+            width: 180px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .tagline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .links {
+            margin: 30px 0;
+        }
+
+        .link {
+            display: block;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 16px 25px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--glossy-effect);
+            pointer-events: none;
+        }
+
+        .link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            background-color: #222222;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--glossy-effect);
+            pointer-events: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #999999;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .footer-link {
+            color: #999999;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .container {
+            background-color: #1e1e1e;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .tagline,
+        body.dark-mode .footer-link:hover {
+            color: var(--secondary-color);
+        }
+
+        body.dark-mode .tagline::after {
+            background-color: var(--secondary-color);
+        }
+
+        body.dark-mode .link {
+            background-color: #333;
+            color: var(--secondary-color);
+        }
+
+        body.dark-mode .link:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode .social-link {
+            background-color: #333;
+            color: var(--secondary-color);
+        }
+
+        body.dark-mode .footer,
+        body.dark-mode .footer-link {
+            color: #888;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <!-- Ganti src dengan URL logo Anda -->
+            <img src="Roxie logo.jpg" alt="Roxie images Logo" class="logo-img">
+            <div class="tagline">WEDDING PHOTOGRAPHER Fotografi & Videografi</div>
+        </div>
+        
+        <div class="links">
+            <a href="https://wa.me//6285230106888" class="link">PRICE LIST</a>
+            <a href="https://roxie-galery.netlify.app/" class="link">ONLINE GALLERY</a>
+            <a href="https://wa.me//6285230106888" class="link">CUSTOMER SERVICE</a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://wa.me//6285230106888" class="social-link" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/roxieimages?igsh=MXBkOGljNzF1OTNwdA==" class="social-link" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:roxieimages@gmail.com" class="social-link" target="_blank">
+                <i class="far fa-envelope"></i>
+            </a>
+        </div>
+
+        <div class="footer">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+            <div>© 2022 Roxie images. All rights reserved.</div>
+        </div>
+    </div>
+
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                darkModeToggle.style.background = '#fff';
+                darkModeToggle.style.color = '#333';
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                darkModeToggle.style.background = 'var(--primary-color)';
+                darkModeToggle.style.color = 'white';
+            }
+        });
+
+        // Simple animation for links
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.link');
+            const socialLinks = document.querySelectorAll('.social-link');
+            
+            links.forEach((link, index) => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateY(20px)';
+                link.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1 + 0.3}s`;
+            });
+            
+            socialLinks.forEach((link, index) => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateY(20px)';
+                link.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1 + 0.6}s`;
+            });
+        });
+    </script>
+</body>
+</html>>
